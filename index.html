@@ -1,3 +1,4 @@
+Іван Тимошук, [20.04.2025 20:00]
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -183,13 +184,14 @@
       <a href="#contact">Контакти</a>
     </nav>
   </header>
-
-  <div class="container">
+<div class="container">
     <section id="services">
       <h2>Послуги</h2>
       <ul class="service-list">
         <li><h3>Побутова електроніка</h3><p>Ремонт телевізорів, мікрохвильовок, тощо.</p></li>
         <li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядок і кабелів усіх типів.</p></li>
+
+Іван Тимошук, [20.04.2025 20:00]
 <li><h3>Ремонт павербанків</h3><p>Заміна елементів, підвищення ємності.</p></li>
         <li><h3>Заміна акумуляторів</h3><p>У шуруповертах, ліхтарях, та іншому.</p></li>
         <li><h3>Чистка і профілактика</h3><p>Професійне обслуговування техніки.</p></li>
@@ -218,14 +220,15 @@
       <p>TikTok: <a href="https://www.tiktok.com/@ivan63737" target="_blank">@ivan63737</a></p>
 
       <h3>Онлайн-заявка</h3>
-      <form action="https://formspree.io/f/mjkynqpj" method="POST">
+      <form id="repairForm" action="https://formspree.io/f/mjkynqpj" method="POST">
         <input type="text" name="name" placeholder="Ваше ім’я" required>
         <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
         <textarea name="message" rows="5" placeholder="Опишіть проблему" required></textarea>
         <input type="submit" value="Надіслати">
       </form>
+      <p id="message" class="message"></p>
     </section>
-  </div>
+</div>
 
   <footer>
     <p>&copy; 2025 Ivan Tymoshuk. Всі права захищено.</p>
@@ -234,5 +237,17 @@
       <img src="https://visitor-badge.laobi.icu/badge?page_id=ivan230809.github.io" alt="лічильник відвідувачів">
     </p>
   </footer>
-</body>
-</html>
+
+  <script>
+    const form = document.getElementById("repairForm");
+    const messageElement = document.getElementById("message");
+    let lastSubmitTime = 0;
+
+    form.addEventListener("submit", function (e) {
+      const currentTime = Date.now();
+      if (currentTime - lastSubmitTime < 30000) {
+        e.preventDefault(); // Перешкоджаємо відправці форми
+        messageElement.textContent = "Будь ласка, зачекайте 30 секунд перед повторною відправкою.";
+        messageElement.style.color = "red";
+      } else {
+        lastSubmitTime = currentTime; // Оновлюємо
