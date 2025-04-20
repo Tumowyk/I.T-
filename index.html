@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ремонт Електроніки — Ivan Tymoshuk</title>
   <style>
+    /* Стилі залишаються такими ж, як і раніше */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -183,13 +184,14 @@
       <a href="#contact">Контакти</a>
     </nav>
   </header>
+
 <div class="container">
     <section id="services">
       <h2>Послуги</h2>
       <ul class="service-list">
         <li><h3>Побутова електроніка</h3><p>Ремонт телевізорів, мікрохвильовок, тощо.</p></li>
-        <li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядок і кабелів усіх типів.</p></li>
-<li><h3>Ремонт павербанків</h3><p>Заміна елементів, підвищення ємності.</p></li>
+<li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядок і кабелів усіх типів.</p></li>
+        <li><h3>Ремонт павербанків</h3><p>Заміна елементів, підвищення ємності.</p></li>
         <li><h3>Заміна акумуляторів</h3><p>У шуруповертах, ліхтарях, та іншому.</p></li>
         <li><h3>Чистка і профілактика</h3><p>Професійне обслуговування техніки.</p></li>
       </ul>
@@ -237,14 +239,4 @@
 
   <script>
     const form = document.getElementById("repairForm");
-    const messageElement = document.getElementById("message");
-    let lastSubmitTime = 0;
-
-    form.addEventListener("submit", function (e) {
-      const currentTime = Date.now();
-      if (currentTime - lastSubmitTime < 30000) {
-        e.preventDefault(); // Перешкоджаємо відправці форми
-        messageElement.textContent = "Будь ласка, зачекайте 30 секунд перед повторною відправкою.";
-        messageElement.style.color = "red";
-      } else {
-        lastSubmitTime = currentTime; // Оновлюємо
+    const messageElement
