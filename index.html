@@ -29,10 +29,6 @@
       flex-wrap: wrap;
     }
 
-    .logo-container img {
-      height: 60px;
-    }
-
     .logo-container span {
       font-size: 1.8rem;
       font-weight: bold;
@@ -100,6 +96,41 @@
       color: white;
     }
 
+    .reviews-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .review {
+      background-color: #ecf0f1;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .review:hover {
+      background-color: #e67e22;
+      color: white;
+    }
+
+    .review p {
+      font-size: 0.95rem;
+    }
+
+    .review span {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
     .button {
       display: inline-block;
       background-color: #3498db;
@@ -147,6 +178,12 @@
       .service-list {
         grid-template-columns: 1fr;
       }
+
+      .review {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
@@ -158,26 +195,45 @@
     <nav>
       <a href="#services">Послуги</a>
       <a href="#about">Про мене</a>
+      <a href="#reviews">Відгуки</a>
       <a href="#contact">Контакти</a>
     </nav>
   </header>
-
-  <div class="container">
+<div class="container">
     <section id="services">
       <h2>Послуги</h2>
       <ul class="service-list">
-        <li><h3>Побутова електроніка</h3><p>Ремонт побутових електронних приладів — телевізори, мікрохвильовки тощо.</p></li>
-        <li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядних пристроїв і кабелів будь-яких типів.</p></li>
-        <li><h3>Ремонт павербанків</h3><p>Якісний ремонт і заміна компонентів у павербанках.</p></li>
-        <li><h3>Заміна акумуляторів</h3><p>У шуруповертах та інших пристроях.</p></li>
-        <li><h3>Чистка і профілактика</h3><p>Професійна чистка та продовження життя пристрою.</p></li>
+        <li><h3>Побутова електроніка</h3><p>Ремонт телевізорів, мікрохвильовок, тощо.</p></li>
+        <li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядок і кабелів усіх типів.</p></li>
+        <li><h3>Ремонт павербанків</h3><p>Заміна компонентів, відновлення роботи.</p></li>
+        <li><h3>Заміна акумуляторів</h3><p>В електроінструментах, гаджетах.</p></li>
+        <li><h3>Чистка і профілактика</h3><p>Професійна чистка пристроїв.</p></li>
       </ul>
       <p><a class="button" href="https://t.me/Ivan230809" target="_blank">Замовити ремонт</a></p>
     </section>
 
-<section id="about">
+    <section id="about">
       <h2>Про мене</h2>
       <p>Мене звати Тимошук Іван, я спеціалізуюсь на ремонті електроніки. Працюю швидко, акуратно та з гарантією. Моя мета — забезпечити найкращий сервіс для кожного клієнта.</p>
+    </section>
+
+    <section id="reviews">
+      <h2>Відгуки клієнтів</h2>
+      <div class="reviews-container">
+        <div class="review">
+          <p>Все супер, рекомендую! Павербанк як новий.</p>
+          <span>— Андрій</span>
+        </div>
+        <div class="review">
+          <p>Швидко та якісно, дякую за ремонт телевізора!</p>
+          <span>— Наталя</span>
+        </div>
+        <div class="review">
+          <p>Заміна батареї пройшла ідеально.</p>
+          <span>— Роман</span>
+        </div>
+      </div>
+      <p style="text-align: center;"><a class="button" href="https://t.me/Ivan230809" target="_blank">Залишити відгук</a></p>
     </section>
 
     <section id="contact">
@@ -188,7 +244,8 @@
       <p><a class="button" href="https://t.me/Ivan230809" target="_blank">Написати в Telegram</a></p>
     </section>
   </div>
-<footer>
+
+  <footer>
     <p>&copy; 2025 Ivan Tymoshuk. Всі права захищено.</p>
     <p>
       Відвідувачі сайту:
