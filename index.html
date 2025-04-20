@@ -183,7 +183,7 @@
       <a href="#contact">Контакти</a>
     </nav>
   </header>
-  
+
   <div class="container">
     <section id="services">
       <h2>Послуги</h2>
@@ -219,10 +219,10 @@
 
       <h3>Онлайн-заявка</h3>
       <form id="telegramForm">
-        <input type="text" id="name" placeholder="Ваше ім’я" required>
-        <input type="email" id="email" placeholder="Ваш email" required>
+        <input type="text" id="name" placeholder="Ваше ім’я" required />
+        <input type="email" id="email" placeholder="Ваш email" required />
         <textarea id="message" rows="5" placeholder="Опишіть проблему" required></textarea>
-        <input type="submit" value="Надіслати">
+        <input type="submit" value="Надіслати" />
       </form>
     </section>
   </div>
@@ -236,38 +236,29 @@
   </footer>
 
   <script>
-    const TOKEN = '7581923373:AAGRnYMYgbI4ALWTqi5_FHbKSpnXPoTkFvQ';
-    const CHAT_ID = '1082233702';
-    const URI_API = https://api.telegram.org/bot${TOKEN}/sendMessage;
+    const token = '7581923373:AAGRnYMYgbI4ALWTqi5_FHbKSpnXPoTkFvQ';  // Токен твого бота
+    const chatId = '1082233702';  // Твій chat_id
 
-    document.getElementById('telegramForm').addEventListener('submit', function(e) {
+    document.getElementById("telegramForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
 
-      const text = Нова заявка з сайту:\n\nІм’я: ${name}\nEmail: ${email}\nПовідомлення: ${message};
+      const textMessage = Заявка від ${name} (Email: ${email})\n${message};
 
-      fetch(URI_API, {
+      fetch(https://api.telegram.org/bot${token}/sendMessage, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: text
+          chat_id: chatId,
+          text: textMessage
         })
       })
-      .then(res => {
-        alert("Заявку надіслано!");
-        document.getElementById('telegramForm').reset();
-      })
-      .catch(err => {
-        alert("Сталася помилка при надсиланні.");
-        console.error(err);
-      });
-    });
-  </script>
-</body>
-</html>
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert("Заявка надіслана
