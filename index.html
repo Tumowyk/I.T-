@@ -194,38 +194,6 @@
       Відвідувачі сайту:
       <img src="https://visitor-badge.laobi.icu/badge?page_id=ivan230809.github.io" alt="лічильник відвідувачів">
     </p>
-  <section id="game">
-  <h2>Гра "Чувачі"</h2>
-  <p>Клікай на чувака, щоб набрати очки!</p>
-  <div id="game-area" style="position: relative; width: 100%; height: 300px; background: #dff;">
-    <img id="chuvak" src="https://cdn-icons-png.flaticon.com/512/921/921347.png" alt="чувак" style="position: absolute; width: 80px; height: 80px;">
-  </div>
-  <p>Очки: <span id="score">0</span></p>
-</section>
-
-<script>
-  const chuvak = document.getElementById("chuvak");
-  const gameArea = document.getElementById("game-area");
-  const scoreEl = document.getElementById("score");
-  let score = 0;
-
-  function moveChuvak() {
-    const maxX = gameArea.clientWidth - chuvak.clientWidth;
-    const maxY = gameArea.clientHeight - chuvak.clientHeight;
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-    chuvak.style.left = ${randomX}px;
-    chuvak.style.top = ${randomY}px;
-  }
-
-  chuvak.addEventListener("click", () => {
-    score++;
-    scoreEl.textContent = score;
-    moveChuvak();
-  });
-
-  window.addEventListener("load", moveChuvak);
-</script>  
   </footer>
 </body>
 </html>
