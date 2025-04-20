@@ -218,47 +218,48 @@
       <p>TikTok: <a href="https://www.tiktok.com/@ivan63737" target="_blank">@ivan63737</a></p>
 
       <h3>Онлайн-заявка</h3>
-      <form id="telegramForm">
-        <input type="text" id="name" placeholder="Ваше ім’я" required />
-        <input type="email" id="email" placeholder="Ваш email" required />
-        <textarea id="message" rows="5" placeholder="Опишіть проблему" required></textarea>
-        <input type="submit" value="Надіслати" />
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Ваше ім’я" required>
+        <input type="email" name="email" placeholder="Ваш email" required>
+        <textarea name="message" rows="5" placeholder="Опишіть проблему" required></textarea>
+        <input type="submit" value="Надіслати">
       </form>
     </section>
   </div>
 
   <footer>
     <p>&copy; 2025 Ivan Tymoshuk. Всі права захищено.</p>
-    <p>
-      Відвідувачі сайту:
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=ivan230809.github.io" alt="лічильник відвідувачів">
-    </p>
   </footer>
 
   <script>
-    const token = '7581923373:AAGRnYMYgbI4ALWTqi5_FHbKSpnXPoTkFvQ';  // Токен твого бота
-    const chatId = '1082233702';  // Твій chat_id
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    document.getElementById("telegramForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+      const name = event.target.name.value;
+      const email = event.target.email.value;
+      const message = event.target.message.value;
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+      const token = '7581923373:AAGRnYMYgbI4ALWTqi5_FHbKSpnXPoTkFvQ'; // Токен бота
+      const chatId = '1082233702'; // Твій Telegram ID
+      const text = Новий запит на ремонт:
+      Ім’я: ${name}
+      Email: ${email}
+      Повідомлення: ${message};
 
-      const textMessage = Заявка від ${name} (Email: ${email})\n${message};
-
-      fetch(https://api.telegram.org/bot${token}/sendMessage, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: textMessage
+      fetch(https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)})
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            alert("Запит успішно надіслано!");
+            event.target.reset(); // Очищаємо форму
+          } else {
+            alert("Виникла помилка при надсиланні запиту.");
+          }
         })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.ok) {
-          alert("Заявка надіслана
+        .catch(error => {
+          alert("Виникла помилка при надсиланні запиту.");
+        });
+    });
+  </script>
+</body>
+</html>
