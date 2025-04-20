@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+?<!DOCTYPE html>
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
@@ -148,24 +148,6 @@
         grid-template-columns: 1fr;
       }
     }
-
-    /* Стилі для гри */
-    #gameCanvas {
-      background-color: #111;
-      display: block;
-      margin: 20px auto;
-    }
-
-    #gameOver {
-      color: red;
-      font-size: 30px;
-      display: none;
-    }
-
-    #score {
-      font-size: 20px;
-    }
-
   </style>
 </head>
 <body>
@@ -177,7 +159,6 @@
       <a href="#services">Послуги</a>
       <a href="#about">Про мене</a>
       <a href="#contact">Контакти</a>
-      <a href="#game">Гра</a>
     </nav>
   </header>
 
@@ -185,17 +166,16 @@
     <section id="services">
       <h2>Послуги</h2>
       <ul class="service-list">
-        <li><h3>Ремонт павербанків</h3><p>Якісний ремонт і заміна компонентів у павербанках.</p></li>
+        <li><h3>Побутова електроніка</h3><p>Якісний ремонт і заміна компонентів у павербанках.</p></li>
         <li><h3>Зарядні пристрої та кабелі</h3><p>Ремонт зарядних пристроїв і кабелів будь-яких типів.</p></li>
-        <li><h3>Побутова електроніка</h3><p>Ремонт побутових електронних приладів — телевізори, мікрохвильовки тощо.</p></li>
-
-<li><h3>Заміна акумуляторів</h3><p>У шуруповертах та інших пристроях.</p></li>
+        <li><h3>Ремонт павербанків</h3><p>Ремонт побутових електронних приладів — телевізори, мікрохвильовки тощо.</p></li>
+        <li><h3>Заміна акумуляторів</h3><p>У шуруповертах та інших пристроях.</p></li>
         <li><h3>Чистка і профілактика</h3><p>Професійна чистка та продовження життя пристрою.</p></li>
       </ul>
       <p><a class="button" href="https://t.me/Ivan230809" target="_blank">Замовити ремонт</a></p>
     </section>
 
-    <section id="about">
+<section id="about">
       <h2>Про мене</h2>
       <p>Мене звати Тимошук Іван, я спеціалізуюсь на ремонті електроніки. Працюю швидко, акуратно та з гарантією. Моя мета — забезпечити найкращий сервіс для кожного клієнта.</p>
     </section>
@@ -207,162 +187,13 @@
       <p>TikTok: <a href="https://www.tiktok.com/@ivan63737?_t=ZM-8vgl5Vcl3kE&_r=1" target="_blank">@ivan63737</a></p>
       <p><a class="button" href="https://t.me/Ivan230809" target="_blank">Написати в Telegram</a></p>
     </section>
-
-    <!-- Секція гри -->
-    <section id="game">
-      <h2>Гра: Планетарний стрілець</h2>
-      <canvas id="gameCanvas" width="600" height="600"></canvas>
-      <div id="gameOver">Гра завершена! Ваш рахунок: <span id="finalScore"></span></div>
-      <p id="score">Очки: 0</p>
-    </section>
   </div>
-
-  <footer>
+<footer>
     <p>&copy; 2025 Ivan Tymoshuk. Всі права захищено.</p>
     <p>
       Відвідувачі сайту:
       <img src="https://visitor-badge.laobi.icu/badge?page_id=ivan230809.github.io" alt="лічильник відвідувачів">
     </p>
   </footer>
-
-  <script>
-    // Код для гри "Планетарний стрілець" додається сюди
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const scoreDisplay = document.getElementById('score');
-    const gameOverDisplay = document.getElementById('gameOver');
-    const finalScoreDisplay = document.getElementById('finalScore');
-
-    const shipWidth = 50;
-    const shipHeight = 50;
-    let shipX = canvas.width / 2 - shipWidth / 2;
-    const shipSpeed = 5;
-    let lasers = [];
-    let asteroids = [];
-    let score = 0;
-    let gameOver = false;
-
-    // Корабель
-    const ship = {
-      x: shipX,
-      y: canvas.height - shipHeight - 10,
-      width: shipWidth,
-      height: shipHeight,
-      color: '#00ff00',
-      speed: shipSpeed
-    };
-
-    // Астероїд
-    function createAsteroid() {
-      const size = Math.random() * (50 - 20) + 20;
-      const x = Math.random() * (canvas.width - size);
-      asteroids.push({
-        x: x,
-        y: -size,
-        size: size,
-        speed: Math.random() * 3 + 1,
-      });
-    }
-
-    // Лазери
-    function shootLaser() {
-      lasers.push({
-        x: ship.x + ship.width / 2 - 2,
-        y: ship.y,
-        width: 4,
-        height: 10,
-        speed: 7,
-      });
-    }
-
-    // Оновлення гри
-    function update() {
-      if (gameOver) return;
-
-      // Оновлення астероїдів
-      for (let i = 0; i < asteroids.length; i++) {
-        asteroids[i].y += asteroids[i].speed;
-        // Перевірка на зіткнення з кораблем
-        if (asteroids[i].y + asteroids[i].size > ship.y && 
-          asteroids[i].x < ship.x + ship.width && 
-          asteroids[i].x + asteroids[i].size > ship.x) {
-          gameOver = true;
-          finalScoreDisplay.textContent = score;
-          gameOverDisplay.style.display = 'block';
-          return;
-        }
-        // Видалити астероїди, що виходять за межі екрану
-        if (asteroids[i].y > canvas.height) {
-          asteroids.splice(i, 1);
-          i--;
-        }
-      }
-
-      // Оновлення лазерів
-      for (let i = 0; i < lasers.length; i++) {
-        lasers[i].y -= lasers[i].speed;
-        // Перевірка на зіткнення з астероїдами
-        for (let j = 0; j < asteroids.length; j++) {
-          if (lasers[i].y < asteroids[j].y + asteroids[j].size &&
-lasers[i].x > asteroids[j].x && 
-              lasers[i].x < asteroids[j].x + asteroids[j].size) {
-            asteroids.splice(j, 1);
-            lasers.splice(i, 1);
-            score++;
-            scoreDisplay.textContent = 'Очки: ' + score;
-            break;
-          }
-        }
-        // Видалення лазерів, що виходять за межі екрану
-        if (lasers[i].y < 0) {
-          lasers.splice(i, 1);
-          i--;
-        }
-      }
-
-      // Очищення екрану та перерисовка
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Малюємо корабель
-      ctx.fillStyle = ship.color;
-      ctx.fillRect(ship.x, ship.y, ship.width, ship.height);
-
-      // Малюємо астероїди
-      for (let i = 0; i < asteroids.length; i++) {
-        ctx.fillStyle = 'gray';
-        ctx.beginPath();
-        ctx.arc(asteroids[i].x + asteroids[i].size / 2, asteroids[i].y + asteroids[i].size / 2, asteroids[i].size / 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Малюємо лазери
-      for (let i = 0; i < lasers.length; i++) {
-        ctx.fillStyle = '#ff0000';
-        ctx.fillRect(lasers[i].x, lasers[i].y, lasers[i].width, lasers[i].height);
-      }
-
-      // Оновлення гри
-      requestAnimationFrame(update);
-    }
-
-    // Контроль за кораблем
-    window.addEventListener('keydown', (e) => {
-      if (gameOver) return;
-      if (e.key === 'ArrowLeft' || e.key === 'a') {
-        if (ship.x > 0) ship.x -= ship.speed;
-      } else if (e.key === 'ArrowRight' || e.key === 'd') {
-        if (ship.x < canvas.width - ship.width) ship.x += ship.speed;
-      } else if (e.key === ' ') {
-        shootLaser();
-      }
-    });
-
-    // Створення астероїдів через інтервал
-    setInterval(createAsteroid, 1500);
-
-    // Початок гри
-    update();
-
-  </script>
 </body>
 </html>
