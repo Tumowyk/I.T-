@@ -196,31 +196,79 @@
         <li><h3>Чистка і профілактика</h3><p>Професійне обслуговування техніки.</p></li>
       </ul>
 <div class="card">
-  <h3>Ціни на перепаковку акумуляторів для високострумових приладів (Шуруповерт, Болгарка)</h3>
-  <p><strong>Ціна залежить від кількості батарей (шт) та їхньої напруги (V).</strong></p>
-  <ul>
-    <li><strong>12V</strong> (3 елементи) — 400 грн</li>
-    <li><strong>14.4V</strong> (4 елементи) — 600 грн</li>
-    <li><strong>18V</strong> (5 елементів) — 800 грн</li>
-    <li><strong>21.6V</strong> (6 елементів) — 900 грн</li>
-    <li><strong>25.2V</strong> (7 елементів) — 1000 грн</li>
-    <li><strong>28.8V</strong> (8 елементів) — 1100 грн</li>
-    <li><strong>32.4V</strong> (9 елементів) — 1200 грн</li>
-    <li><strong>36V</strong> (10 елементів) — 1350 грн</li>
-  </ul>
+ <style>
+  .price-section {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 2rem;
+  }
+
+  .price-card {
+    background: #f9f9f9;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .price-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .price-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+  }
+
+  .price-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 0 0;
+  }
+
+  .price-card li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+  }
+
+  .price-card li:last-child {
+    border-bottom: none;
+  }
+</style>
+
+<div class="price-section">
+  <div class="price-card">
+    <h3>Високострумові пристрої (Шуруповерт, Болгарка)</h3>
+    <p><strong>Ціна залежить від кількості батарей та їхньої напруги.</strong></p>
+    <ul>
+      <li><strong>12V</strong> (3 елементи) — 400 грн</li>
+      <li><strong>14.4V</strong> (4 елементи) — 600 грн</li>
+      <li><strong>18V</strong> (5 елементів) — 800 грн</li>
+      <li><strong>21.6V</strong> (6 елементів) — 900 грн</li>
+      <li><strong>25.2V</strong> (7 елементів) — 1000 грн</li>
+      <li><strong>28.8V</strong> (8 елементів) — 1100 грн</li>
+      <li><strong>32.4V</strong> (9 елементів) — 1200 грн</li>
+      <li><strong>36V</strong> (10 елементів) — 1350 грн</li>
+    </ul>
+  </div>
+
+  <div class="price-card">
+    <h3>Середньотокові пристрої (Powerbanks, LED лампи, ваги тощо)</h3>
+    <ul>
+      <li><strong>12V</strong> (3 елементи) — 320 грн</li>
+      <li><strong>14.4V</strong> (4 елементи) — 405 грн</li>
+      <li><strong>18V</strong> (5 елементів) — 550 грн</li>
+      <li><strong>21.6V</strong> (6 елементів) — 700 грн</li>
+      <li><strong>25.2V</strong> (7 елементів) — 850 грн</li>
+      <li><strong>28.8V</strong> (8 елементів) — 1000 грн</li>
+      <li><strong>32.4V</strong> (9 елементів) — 1150 грн</li>
+      <li><strong>36V</strong> (10 елементів) — 1300 грн</li>
+    </ul>
+  </div>
 </div>
-<div class="card">
-  <h3>Ціни на перепаковку акумуляторів для середньотокові пристроїв (Powerbanks, LED лампи, Портативні колонки, Лазерний рівень, Ваги електронні)</h3>
-  <ul>
-    <li><strong>12V</strong> (3 елементи) — 320 грн</li>
-    <li><strong>14.4V</strong> (4 елементи) — 405 грн</li>
-    <li><strong>18V</strong> (5 елементів) — 550 грн</li>
-    <li><strong>21.6V</strong> (6 елементів) — 700 грн</li>
-    <li><strong>25.2V</strong> (7 елементів) — 850 грн</li>
-    <li><strong>28.8V</strong> (8 елементів) — 1000 грн</li>
-    <li><strong>32.4V</strong> (9 елементів) — 1150 грн</li>
-    <li><strong>36V</strong> (10 елементів) — 1300 грн</li>
-  </ul>
 </div>
       <p><a class="button" href="#contact">Замовити ремонт</a></p>
     </section>
