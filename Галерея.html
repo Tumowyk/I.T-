@@ -106,27 +106,67 @@
   <source src="video2.mp4" type="video/mp4">
   Ваш браузер не підтримує відео.
 </video>
-   <video width="320" height="240" controls>
-  <source src="video4.mp4" type="video/mp4">
-  Ваш браузер не підтримує відео.
-</video>
+    <style>
+  .video-container {
+    width: 340px;
+    margin: 20px auto;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+  }
 
-<p>
-  Це відео показує <strong>установку прожектора з датчиком руху</strong> та додатковим <strong>вимикачем</strong>, 
-  який дозволяє вмикати прожектор незалежно від датчика.
-</p>
+  .video-container video {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+  }
 
-<ul>
-  <li>Підключення живлення до прожектора</li>
-  <li>З’єднання з датчиком руху</li>
-  <li>Додавання вимикача для ручного увімкнення</li>
-  <li>Тестування роботи — автоматичне та ручне керування</li>
-</ul>
+  .video-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
 
-<p>
-  Така схема дозволяє використовувати прожектор як у звичайному режимі з датчиком, 
-  так і примусово вмикати його вручну, наприклад, для постійного освітлення у дворі.
-</p>
+  .video-description strong {
+    color: #2e7d32;
+  }
+
+  .video-description ul {
+    padding-left: 20px;
+  }
+
+  .video-description li {
+    margin-bottom: 5px;
+  }
+</style>
+
+<div class="video-container">
+  <video controls>
+    <source src="video4.mp4" type="video/mp4">
+    Ваш браузер не підтримує відео.
+  </video>
+
+  <div class="video-description">
+    <p>
+      Це відео показує <strong>установку прожектора з датчиком руху</strong> та додатковим <strong>вимикачем</strong>, 
+      який дозволяє вмикати прожектор незалежно від датчика.
+    </p>
+
+    <ul>
+      <li>Підключення живлення до прожектора</li>
+      <li>З’єднання з датчиком руху</li>
+      <li>Додавання вимикача для ручного увімкнення</li>
+      <li>Тестування автоматичного та ручного керування</li>
+    </ul>
+
+    <p>
+      Це зручно для ситуацій, коли потрібно залишити світло ввімкненим постійно — наприклад, уночі або під час робіт на вулиці.
+    </p>
+  </div>
+</div>
     <!-- Додай ще скільки хочеш блоків нижче -->
   </div>
 
