@@ -178,10 +178,46 @@
       <span>I.T ЕЛЕКТРОНІКА</span>
     </div>
     <nav>
-      <a href="#services">Послуги</a>
-      <a href="#about">Про мене</a>
-      <a href="#reviews">Відгуки</a>
-      <a href="#contact">Контакти</a>
+  <style>
+  nav a {
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 15px;
+    background: linear-gradient(
+      270deg, 
+      #ff0055, /* яскраво-рожевий */
+      #ff9900, /* яскраво-помаранчевий */
+      #ffee00, /* яскраво-жовтий */
+      #00ff44, /* яскраво-зелений */
+      #0099ff, /* яскраво-блакитний */
+      #6600ff  /* яскраво-фіолетовий */
+    );
+    background-size: 1200% 1200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+
+<nav>
+  <a href="#services">Послуги</a>
+  <a href="#about">Про мене</a>
+  <a href="#reviews">Відгуки</a>
+  <a href="#contact">Контакти</a>
+</nav>
+<a href="#location" class="location-link">Де ми знаходимося</a>
     <a href="Галерея.html" target="_blank">Галерея ремонтів</a></nav>
   </header>
 
